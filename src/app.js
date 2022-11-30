@@ -120,13 +120,21 @@ window.onload = function() {
         const adj = adjs[j];
         for (let k = 0; k < nouns.length; k++) {
           const noun = nouns[k];
-          const domainWithoutTLD = pronoun + adj + noun;
-          const domain = applyDomainHack(domainWithoutTLD);
-          domains.push(domain);
+          for (let l = 0; l < tlds.length; l++) {
+            const tld = tlds[l];
+            const domain = pronoun + adj + noun + "." + tld;
+            domains.push(domain);
+          }
         }
       }
     }
-
-    printDomains(domainGenerator());
+    return domains;
+  }
+  function printDomains(domainsInput) {
+    for (let i = 0; i < domainsInput.length; i++) {
+      console.log(domainsInput[i]);
+    }
   }
 };
+
+printDomains(domainGenerator());
