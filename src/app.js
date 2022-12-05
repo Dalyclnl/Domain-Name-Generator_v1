@@ -76,4 +76,9 @@ function domainGenerator() {
   return domains;
 }
 
-console.log(domainGenerator());
+function printDomains(domInput) {
+  for (let i = 0; i < domInput.length; i++) {
+    console.log(domInput[i]);
+  }
+}
+printDomains(domainGenerator());
